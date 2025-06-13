@@ -9,6 +9,7 @@ import { getDefaultConfig, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { mainnet, polygon, optimism, arbitrum, base } from "wagmi/chains";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Header } from "@/components/Header";
 
 const config = getDefaultConfig({
   appName: "My RainbowKit App",
@@ -20,12 +21,43 @@ const config = getDefaultConfig({
 // Create a theme instance
 const theme = createTheme({
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
-      main: "#1976d2",
+      main: "#FF2D2D",
     },
-    secondary: {
-      main: "#9c27b0",
+    background: {
+      default: "#121212",
+      paper: "#1E1E1E",
+    },
+    text: {
+      primary: "#FFFFFF",
+      secondary: "#AAAAAA",
+    },
+  },
+  typography: {
+    fontFamily: `"Inter", "Roboto", "Helvetica", "Arial", sans-serif`,
+    h1: {
+      fontWeight: 600,
+      fontSize: "2.5rem",
+    },
+    button: {
+      color: "#FFFFFF",
+      textTransform: "none",
+      fontWeight: 600,
+    },
+  },
+  shape: {
+    borderRadius: 16,
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          color: "#FFFFFF",
+          textTransform: "none",
+          fontWeight: 600,
+        },
+      },
     },
   },
 });
@@ -44,6 +76,7 @@ export default function ClientLayout({
           <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
               <CssBaseline />
+              <Header />
               {children}
             </ThemeProvider>
           </AppRouterCacheProvider>

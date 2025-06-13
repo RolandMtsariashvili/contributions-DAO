@@ -3,7 +3,7 @@ import { Box, Typography, Container, Paper } from "@mui/material";
 
 export default function ConnectPage() {
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="xl">
       <Box
         sx={{
           minHeight: "100vh",
